@@ -60,7 +60,7 @@
 				scene.add(sky);
 
 				// Texture
-				const size = 128;
+				const size = 256;
 				const data = new Uint8Array(size * size * size);
 
 				let i = 0;
@@ -72,7 +72,7 @@
 					for (let y = 0; y < size; y ++) {
 						for (let x = 0; x < size; x ++) {
 							const d = 1.0 - vector.set(x, y, z).subScalar(size / 2).divideScalar(size).length();
-							data[i] = (128 + 128 * perlin.noise(x * scale / 1.5, y * scale, z * scale / 1.5)) * d * d;
+							data[i] = (size + size * perlin.noise(x * scale / 1.5, y * scale, z * scale / 1.5)) * d * d;
 							i ++;
 						}
 					}
