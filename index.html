@@ -21,6 +21,18 @@
 				document.body.appendChild(THREE.WEBGL.getWebGL2ErrorMessage());
 			}
 
+			const video = document.createElement("video");
+			video.crossOrigin = "anonymous";
+			video.width = 640;
+			video.height = 360;
+			video.loop = true;
+			video.muted = true;
+			video.src = "./files/cat.mp4";
+			video.setAttribute("webkit-playsinline", "webkit-playsinline");
+			video.play();
+
+			const videoTexture = new THREE.VideoTexture(video);
+
 			let renderer, scene, camera, controls;
 			let mesh;
 
